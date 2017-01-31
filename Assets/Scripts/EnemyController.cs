@@ -12,14 +12,6 @@ public class EnemyController : MonoBehaviour
     public TextMesh textMesh;
     public float bulletsPerSecond = 8;
     public Projectile projectile;
-    public Animation moveLeft;
-    public Animation moveRight;
-    public Animation moveUp;
-    public Animation moveDown;
-    public Animation idleLeft;
-    public Animation idleRight;
-    public Animation idleUp;
-    public Animation idleDown;
     GameObject player;
     Vector2 direction;
     bool fire;
