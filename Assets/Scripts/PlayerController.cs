@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Orientation { IdleLeft, IdleRight, IdleUp, IdleDown, MoveLeft, MoveRight, MoveUp, MoveDown };
+public enum Orientation { IdleLeft, IdleRight, IdleUp, IdleDown, MoveLeft, MoveRight, MoveUp, MoveDown };
 
 public class PlayerController : MonoBehaviour {
     public float playerSpeed = 1;
     public float bulletsPerSecond = 8;
     public Projectile projectile;
+    public Orientation orientation = Orientation.IdleDown;
     public TextMesh textMesh;
-    Orientation orientation = Orientation.IdleDown;
+    public Animation moveLeft;
+    public Animation moveRight;
+    public Animation moveUp;
+    public Animation moveDown;
+    public Animation idleLeft;
+    public Animation idleRight;
+    public Animation idleUp;
+    public Animation idleDown;
     Vector2 oldDirection;
     Vector2 newDirection;
     bool fire;
@@ -113,7 +121,6 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-
         textMesh.text = orientation.ToString();
     }
 
