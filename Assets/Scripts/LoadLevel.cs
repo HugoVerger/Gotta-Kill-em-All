@@ -2,22 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadLevel : MonoBehaviour {
-
-
-    public string nom_scene; 
-
-	// Use this for initialization
-	void Start () {
-		
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        
-	}
+public class LoadLevel : MonoBehaviour
+{
+    public string nom_scene;
 
     void OnTriggerEnter2D(Collider2D coll)
     {

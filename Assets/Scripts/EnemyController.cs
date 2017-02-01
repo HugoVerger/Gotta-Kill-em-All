@@ -5,30 +5,31 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float enemySpeed = 0.7f;
-    public int health = 3;    
-    public Orientation orientation = Orientation.IdleDown;
-    public bool isSchlassing = false;
-    public float detectionDistance = 1.5f;    
-    public float bulletsPerSecond = 8;
-    public float schlassPerSecond = 1;
+    public int health = 3;
+    public bool isRange = false;
+    public float detectionDistance = 1.5f;
     public float killDistance = 0.2f;
+    public float bulletsPerSecond = 8;
+    public float schlassPerSecond = 2;
     public Projectile projectile;
+    Orientation orientation = Orientation.IdleDown;
     GameManager gameManager;
     GameObject player;
     Vector2 direction;
     bool playerFound;
     bool fire;
-    bool hasSchlassed = false;
-    float timeSinceLastHit = 0f;
+    bool inAttackRange;
+    float timeSinceLastAttack = 0f;
 
     // Use this for initialization
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        player = GameObject.Find("Player");
         direction = new Vector2(0, 0);
         playerFound = false;
         fire = false;
-        player = GameObject.Find("Player");
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        inAttackRange = false;
     }
 
     // Update is called once per frame
@@ -38,65 +39,62 @@ public class EnemyController : MonoBehaviour
         {
             FindNextMove();
             HandleMoving();
-            if (fire)
+            if (isRange)
             {
-                if (timeSinceLastHit > (1 / bulletsPerSecond))
+                if (fire && timeSinceLastAttack > (1 / bulletsPerSecond))
                 {
-                    timeSinceLastHit = 0f;
+                    timeSinceLastAttack = 0f;
                     Fire();
                 }
-                else
-                {
-                    timeSinceLastHit += Time.deltaTime;
-                }
             }
-            if (hasSchlassed)
+            else
             {
-                if (timeSinceLastHit > (1 / schlassPerSecond))
+                if (inAttackRange && timeSinceLastAttack > (1 / schlassPerSecond))
                 {
-                    timeSinceLastHit = 0f;
-                    hasSchlassed = false;
-                }
-                else
-                {
-                    timeSinceLastHit += Time.deltaTime;
+                    timeSinceLastAttack = 0f;
+                    Attack();
                 }
             }
+            timeSinceLastAttack += Time.deltaTime;
         }
     }
 
     Orientation FindNextMove()
     {
-        if (isSchlassing)
+        if (isRange == false)
         {
             float distance = Vector3.Distance(player.transform.position, transform.position);
-            if (distance < killDistance)
+            inAttackRange = (distance < killDistance);
+            if (inAttackRange == false && (distance < detectionDistance || playerFound))
             {
-                if (timeSinceLastHit == 0f)
+                playerFound = true;
+                float distanceX = player.transform.position.x - transform.position.x;
+                float distanceY = player.transform.position.y - transform.position.y;
+                if (Mathf.Abs(distanceX) < 0.2f)
                 {
-                    player.GetComponent<PlayerController>().Damage(1);
-                    hasSchlassed = true;
-                }                
-            }
-            else
-            {
-                if (distance < detectionDistance || playerFound)
-                {
-                    playerFound = true;
-                    float distanceX = player.transform.position.x - transform.position.x;
-                    float distanceY = player.transform.position.y - transform.position.y;
-                    if (Mathf.Abs(distanceX) < killDistance)
+                    if (distanceY < 0)
                     {
-                        if (distanceY < 0)
-                        {
-                            return Orientation.MoveDown;
-                        }
-                        else
-                        {
-                            return Orientation.MoveUp;
-                        }
+                        return Orientation.MoveDown;
                     }
-                    else if (Mathf.Abs(distanceY) < killDistance)
+                    else
+                    {
+                        return Orientation.MoveUp;
+                    }
+                }
+                else if (Mathf.Abs(distanceY) < 0.2f)
+                {
+                    if (distanceX < 0)
+                    {
+                        return Orientation.MoveLeft;
+                    }
+                    else
+                    {
+                        return Orientation.MoveRight;
+                    }
+                }
+                else
+                {
+                    if (Mathf.Abs(distanceX) < Mathf.Abs(distanceY))
                     {
                         if (distanceX < 0)
                         {
@@ -109,27 +107,13 @@ public class EnemyController : MonoBehaviour
                     }
                     else
                     {
-                        if (Mathf.Abs(distanceX) < Mathf.Abs(distanceY))
+                        if (distanceY < 0)
                         {
-                            if (distanceX < 0)
-                            {
-                                return Orientation.MoveLeft;
-                            }
-                            else
-                            {
-                                return Orientation.MoveRight;
-                            }
+                            return Orientation.MoveDown;
                         }
                         else
                         {
-                            if (distanceY < 0)
-                            {
-                                return Orientation.MoveDown;
-                            }
-                            else
-                            {
-                                return Orientation.MoveUp;
-                            }
+                            return Orientation.MoveUp;
                         }
                     }
                 }
@@ -182,7 +166,6 @@ public class EnemyController : MonoBehaviour
             }
         }
         GetComponent<Rigidbody2D>().velocity = direction * enemySpeed;
-        
 
         /*if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
@@ -219,5 +202,10 @@ public class EnemyController : MonoBehaviour
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
             temp.direction = new Vector2(0, -1);
         }
+    }
+
+    void Attack()
+    {
+        player.GetComponent<PlayerController>().Damage(1);
     }
 }
