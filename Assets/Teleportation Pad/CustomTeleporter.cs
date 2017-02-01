@@ -180,7 +180,7 @@ public class CustomTeleporter : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter(Collider trig)
+	void OnTriggerEnter2D(Collider2D trig)
 	{
 		//when an object enters the trigger
 		//if you set a tag in the inspector, check if an object has that tag
@@ -217,7 +217,7 @@ public class CustomTeleporter : MonoBehaviour
 		}
 	}
 
-	void OnTriggerExit(Collider trig)
+	void OnTriggerExit2D(Collider2D trig)
 	{
 		//////////////if you set a tag for the entering pad, you should also set it for the exiting pad////////
 		//when an object exists the trigger

@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     public float enemySpeed = 0.7f;
     public int health = 3;    
     public Orientation orientation = Orientation.IdleDown;
-    public bool isRange = false;
+    public bool isSchlassing = false;
     public float detectionDistance = 1.5f;    
     public float bulletsPerSecond = 8;
     public float schlassPerSecond = 1;
@@ -182,7 +182,7 @@ public class EnemyController : MonoBehaviour
             }
         }
         GetComponent<Rigidbody2D>().velocity = direction * enemySpeed;
-        textMesh.text = orientation.ToString();
+        
 
         /*if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
