@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61058919028938706}
   - component: {fileID: 50275314070289918}
   - component: {fileID: 114514440288716552}
+  - component: {fileID: 95590132600845558}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -74,9 +75,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.025}
+  m_Offset: {x: 0.15, y: -0.13}
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.08}
+  m_Size: {x: 0.12, y: 0.1}
+--- !u!95 &95590132600845558
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1255820995446456}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47a8535dad5f6ae4baa1395e1d0c9fab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114514440288716552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,14 +108,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 0.6
   health: 3
-  isRange: 1
+  isRange: 0
   detectionDistance: 1.5
-  killDistance: 0.3
+  killDistance: 0.2
   bulletsPerSecond: 10
   schlassPerSecond: 2
   projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
     type: 2}
-  orientation: 7
+  orientation: 3
   strafeRange: 0.25
 --- !u!212 &212998659465960566
 SpriteRenderer:
@@ -130,7 +148,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: def726f7454c4e945a77189c6fb9c79b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

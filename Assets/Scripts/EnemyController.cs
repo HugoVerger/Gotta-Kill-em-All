@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     GameManager gameManager;
     GameObject player;
     Vector2 direction;
+    Animator animator;
     bool playerFound;
     bool inAttackRange;
     float timeSinceLastAttack = 0f;
@@ -28,6 +29,8 @@ public class EnemyController : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         player = GameObject.Find("Player");
         direction = new Vector2(0, 0);
+        animator = GetComponent<Animator>();
+        animator.speed = 0.45f;
         playerFound = false;
         inAttackRange = false;
         originalPosition = new Vector2(transform.position.x, transform.position.y);
@@ -74,10 +77,12 @@ public class EnemyController : MonoBehaviour
                 {
                     if (distanceY < 0)
                     {
+                        animator.Play("MoveDown");
                         return Orientation.MoveDown;
                     }
                     else
                     {
+                        animator.Play("MoveUp");
                         return Orientation.MoveUp;
                     }
                 }
@@ -85,10 +90,12 @@ public class EnemyController : MonoBehaviour
                 {
                     if (distanceX < 0)
                     {
+                        animator.Play("MoveLeft");
                         return Orientation.MoveLeft;
                     }
                     else
                     {
+                        animator.Play("MoveRight");
                         return Orientation.MoveRight;
                     }
                 }
@@ -98,10 +105,12 @@ public class EnemyController : MonoBehaviour
                     {
                         if (distanceX < 0)
                         {
+                            animator.Play("MoveLeft");
                             return Orientation.MoveLeft;
                         }
                         else
                         {
+                            animator.Play("MoveRight");
                             return Orientation.MoveRight;
                         }
                     }
@@ -109,10 +118,12 @@ public class EnemyController : MonoBehaviour
                     {
                         if (distanceY < 0)
                         {
+                            animator.Play("MoveDown");
                             return Orientation.MoveDown;
                         }
                         else
                         {
+                            animator.Play("MoveUp");
                             return Orientation.MoveUp;
                         }
                     }
@@ -153,18 +164,22 @@ public class EnemyController : MonoBehaviour
                 if (orientation == Orientation.MoveLeft)
                 {
                     orientation = Orientation.IdleLeft;
+                    animator.Play("IdleLeft");
                 }
                 else if (orientation == Orientation.MoveRight)
                 {
                     orientation = Orientation.IdleRight;
+                    animator.Play("IdleRight");
                 }
                 else if (orientation == Orientation.MoveUp)
                 {
                     orientation = Orientation.IdleUp;
+                    animator.Play("IdleUp");
                 }
                 else if (orientation == Orientation.MoveDown)
                 {
                     orientation = Orientation.IdleDown;
+                    animator.Play("IdleDown");
                 }
             }
         }
@@ -212,34 +227,51 @@ public class EnemyController : MonoBehaviour
         if (orientation == Orientation.MoveLeft || orientation == Orientation.IdleLeft)
         {
             ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
-            temp.transform.Rotate(new Vector3(0, 0, 90));
-            temp.transform.Translate(new Vector3(-0.025f, 0.148f, 0));
-            temp.direction = new Vector2(0, 1);
+            temp.transform.Rotate(new Vector3(0, 0, 270));
+            temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
+            temp.direction = new Vector2(0, -1);
         }
         else if (orientation == Orientation.MoveRight || orientation == Orientation.IdleRight)
         {
             ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
-            temp.transform.Translate(new Vector3(-0.025f, -0.148f, 0));
+            temp.transform.Translate(new Vector3(-0.025f, -0.120f, 0));
             temp.direction = new Vector2(0, -1);
         }
         else if (orientation == Orientation.MoveUp || orientation == Orientation.IdleUp)
         {
             ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
-            temp.transform.Translate(new Vector3(-0.025f, 0.148f, 0));
-            temp.direction = new Vector2(0, 1);
+            temp.transform.Rotate(new Vector3(0, 0, 180));
+            temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
+            temp.direction = new Vector2(0, -1);
         }
         else if (orientation == Orientation.MoveDown || orientation == Orientation.IdleDown)
         {
             ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
-            temp.transform.Translate(new Vector3(0.025f, -0.148f, 0));
+            temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
             temp.direction = new Vector2(0, -1);
         }
     }
 
     void Attack()
     {
-        player.GetComponent<PlayerController>().Damage(2);
+        player.GetComponent<PlayerController>().Damage(1);
+        if (orientation == Orientation.MoveLeft || orientation == Orientation.IdleLeft)
+        {
+            animator.Play("AttackLeft");
+        }
+        else if (orientation == Orientation.MoveRight || orientation == Orientation.IdleRight)
+        {
+            animator.Play("AttackRight");
+        }
+        else if (orientation == Orientation.MoveUp || orientation == Orientation.IdleUp)
+        {
+            animator.Play("AttackUp");
+        }
+        else if (orientation == Orientation.MoveDown || orientation == Orientation.IdleDown)
+        {
+            animator.Play("AttackDown");
+        }
     }
 
     public void Damage(int damageDone)
