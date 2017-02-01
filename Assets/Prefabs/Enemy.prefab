@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255820995446456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.616, y: 0.237, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +51,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255820995446456}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -75,9 +75,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.15, y: -0.13}
+  m_Offset: {x: 0, y: -0.025}
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.1}
+  m_Size: {x: 0.12, y: 0.08}
 --- !u!95 &95590132600845558
 Animator:
   serializedVersion: 3
@@ -107,16 +107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 0.6
-  health: 3
-  isRange: 0
-  detectionDistance: 1.5
-  killDistance: 0.25
-  bulletsPerSecond: 10
-  schlassPerSecond: 2
-  projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
-    type: 2}
+  health: 5
   orientation: 3
-  strafeRange: 0.25
+  detectionDistance: 1.5
+  killDistance: 0.2
+  attackPerSecond: 2
 --- !u!212 &212998659465960566
 SpriteRenderer:
   m_ObjectHideFlags: 1
