@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Orientation { IdleLeft, IdleRight, IdleUp, IdleDown, MoveLeft, MoveRight, MoveUp, MoveDown };
 
 public class PlayerController : MonoBehaviour
 {
-    public float playerSpeed = 1;
+    public float playerSpeed = 0.8f;
     public float bulletsPerSecond = 8;
     public Projectile projectile;
     public Orientation orientation = Orientation.IdleDown;
+    public int health = 5;
     Animator animator;
     Vector2 oldDirection;
     Vector2 newDirection;
@@ -213,6 +215,23 @@ public class PlayerController : MonoBehaviour
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
             temp.direction = new Vector2(0, -1);
+        }
+    }
+
+    public void Damage(int damageDone)
+    {
+        health = health - damageDone;
+        if (health <= 0)
+        {
+            health = 0;
+            GameObject.Find("HealthText").GetComponent<Text>().text = health + "";
+            GameObject.Find("GameManager").GetComponent<GameManager>().isPlayerDead = true;
+            transform.DetachChildren();
+            DestroyObject(gameObject);
+        }
+        else
+        {
+            GameObject.Find("HealthText").GetComponent<Text>().text = health + "";
         }
     }
 }
