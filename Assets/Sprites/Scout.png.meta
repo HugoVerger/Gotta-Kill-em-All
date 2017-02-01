@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: def726f7454c4e945a77189c6fb9c79b
-timeCreated: 1485950598
+timeCreated: 1485960662
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -87,12 +87,12 @@ TextureImporter:
       name: Scout_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 28
-        width: 14
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -100,12 +100,12 @@ TextureImporter:
       name: Scout_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 27
-        width: 14
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 30
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -113,12 +113,12 @@ TextureImporter:
       name: Scout_2
       rect:
         serializedVersion: 2
-        x: 62
-        y: 29
-        width: 14
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 60
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -126,12 +126,12 @@ TextureImporter:
       name: Scout_3
       rect:
         serializedVersion: 2
-        x: 97
-        y: 31
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 90
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -139,12 +139,12 @@ TextureImporter:
       name: Scout_4
       rect:
         serializedVersion: 2
-        x: 127
-        y: 32
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 120
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -152,12 +152,12 @@ TextureImporter:
       name: Scout_5
       rect:
         serializedVersion: 2
-        x: 157
-        y: 32
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 150
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -165,12 +165,12 @@ TextureImporter:
       name: Scout_6
       rect:
         serializedVersion: 2
-        x: 188
-        y: 26
-        width: 14
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 180
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -178,12 +178,12 @@ TextureImporter:
       name: Scout_7
       rect:
         serializedVersion: 2
-        x: 218
-        y: 31
-        width: 14
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 210
+        y: 25
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -191,12 +191,12 @@ TextureImporter:
       name: Scout_8
       rect:
         serializedVersion: 2
-        x: 6
-        y: 7
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -204,12 +204,12 @@ TextureImporter:
       name: Scout_9
       rect:
         serializedVersion: 2
-        x: 34
-        y: 8
-        width: 17
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 30
+        y: 0
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -217,12 +217,12 @@ TextureImporter:
       name: Scout_10
       rect:
         serializedVersion: 2
-        x: 69
-        y: 7
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 60
+        y: 0
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -230,12 +230,12 @@ TextureImporter:
       name: Scout_11
       rect:
         serializedVersion: 2
-        x: 99
-        y: 8
-        width: 17
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 90
+        y: 0
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -243,12 +243,12 @@ TextureImporter:
       name: Scout_12
       rect:
         serializedVersion: 2
-        x: 181
-        y: 7
-        width: 20
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 180
+        y: 0
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -256,12 +256,12 @@ TextureImporter:
       name: Scout_13
       rect:
         serializedVersion: 2
-        x: 219
-        y: 7
-        width: 20
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 210
+        y: 0
+        width: 30
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

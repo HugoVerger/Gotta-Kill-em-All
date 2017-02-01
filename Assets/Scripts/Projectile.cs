@@ -7,6 +7,12 @@ public class Projectile : MonoBehaviour
     public float projectileSpeed = 3;
     public Vector2 direction = new Vector2(0, 1);
 
+    private void Start()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
+    }
+
     void Update()
     {
         transform.Translate(direction * projectileSpeed * Time.deltaTime);
