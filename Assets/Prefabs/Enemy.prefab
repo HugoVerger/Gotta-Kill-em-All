@@ -110,7 +110,7 @@ MonoBehaviour:
   health: 3
   isRange: 0
   detectionDistance: 1.5
-  killDistance: 0.2
+  killDistance: 0.25
   bulletsPerSecond: 10
   schlassPerSecond: 2
   projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
