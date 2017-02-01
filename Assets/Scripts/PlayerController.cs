@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Orientation { IdleLeft, IdleRight, IdleUp, IdleDown, MoveLeft, MoveRight, MoveUp, MoveDown };
 
 public class PlayerController : MonoBehaviour
 {
-    public float playerSpeed = 1;
+    public float playerSpeed = 0.8f;
+    public int health = 5;
     public float bulletsPerSecond = 8;
-    public Projectile projectile;
     public Orientation orientation = Orientation.IdleDown;
+    public Projectile projectile;
+    float timeSinceLastShot = 0f;
     Animator animator;
     Vector2 oldDirection;
     Vector2 newDirection;
     bool fire;
-    float timeSinceLastShot = 0f;
 
     // Use this for initialization
     void Start()
@@ -196,23 +198,44 @@ public class PlayerController : MonoBehaviour
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
+			temp.transform.Translate (new Vector3 (-0.025f, 0.148f, 0));
             temp.direction = new Vector2(0, 1);
         }
         else if (orientation == Orientation.MoveRight || orientation == Orientation.IdleRight)
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
+			temp.transform.Translate(new Vector3(-0.025f,-0.148f,0));
             temp.direction = new Vector2(0, -1);
         }
         else if (orientation == Orientation.MoveUp || orientation == Orientation.IdleUp)
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+			temp.transform.Translate(new Vector3(-0.025f,0.148f,0));
             temp.direction = new Vector2(0, 1);
         }
         else if (orientation == Orientation.MoveDown || orientation == Orientation.IdleDown)
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+			temp.transform.Translate(new Vector3(0.025f,-0.148f,0));
             temp.direction = new Vector2(0, -1);
+        }
+    }
+
+    public void Damage(int damageDone)
+    {
+        health -= damageDone;
+        if (health <= 0)
+        {
+            health = 0;
+            GameObject.Find("HealthText").GetComponent<Text>().text = health + "";
+            GameObject.Find("GameManager").GetComponent<GameManager>().isPlayerDead = true;
+            transform.DetachChildren();
+            DestroyObject(gameObject);
+        }
+        else
+        {
+            GameObject.Find("HealthText").GetComponent<Text>().text = health + "";
         }
     }
 }
