@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public float killDistance = 0.3f;
     public float bulletsPerSecond = 8;
     public float schlassPerSecond = 2;
-    public Projectile projectile;
+    public ProjectileEnemy projectileEnemy;
     public Orientation orientation = Orientation.IdleDown;
     public float strafeRange;
     Vector2 originalPosition;
@@ -211,30 +211,43 @@ public class EnemyController : MonoBehaviour
     {
         if (orientation == Orientation.MoveLeft || orientation == Orientation.IdleLeft)
         {
-            Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
+            temp.transform.Translate(new Vector3(-0.025f, 0.148f, 0));
             temp.direction = new Vector2(0, 1);
         }
         else if (orientation == Orientation.MoveRight || orientation == Orientation.IdleRight)
         {
-            Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
+            temp.transform.Translate(new Vector3(-0.025f, -0.148f, 0));
             temp.direction = new Vector2(0, -1);
         }
         else if (orientation == Orientation.MoveUp || orientation == Orientation.IdleUp)
         {
-            Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
+            temp.transform.Translate(new Vector3(-0.025f, 0.148f, 0));
             temp.direction = new Vector2(0, 1);
         }
         else if (orientation == Orientation.MoveDown || orientation == Orientation.IdleDown)
         {
-            Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
+            temp.transform.Translate(new Vector3(0.025f, -0.148f, 0));
             temp.direction = new Vector2(0, -1);
         }
     }
 
     void Attack()
     {
-        player.GetComponent<PlayerController>().Damage(1);
+        player.GetComponent<PlayerController>().Damage(2);
+    }
+
+    public void Damage(int damageDone)
+    {
+        health -= damageDone;
+        if (health <= 0)
+        {
+            DestroyObject(gameObject);
+        }
     }
 }

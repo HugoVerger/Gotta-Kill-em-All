@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114514440288716552}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255820995446456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.237, z: 0}
+  m_LocalPosition: {x: 0.616, y: 0.237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,14 +88,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cdbe16e468a1c48bc0e2c89bb1653f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 0.7
+  enemySpeed: 0.6
   health: 3
   isRange: 1
   detectionDistance: 1.5
   killDistance: 0.3
-  bulletsPerSecond: 8
+  bulletsPerSecond: 10
   schlassPerSecond: 2
-  projectile: {fileID: 114363943782376112, guid: dd32bd894ab12d44b8ee3e081387bddd,
+  projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
     type: 2}
   orientation: 7
   strafeRange: 0.25
