@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float enemySpeed = 0.7f;
-    public bool isSchlassing = true;
-    public float detectionDistance = 1.5f;
-    public float killDistance = 0.2f;
-    public Orientation orientation = Orientation.IdleDown;    
+    public int health = 3;    
+    public Orientation orientation = Orientation.IdleDown;
+    public bool isRange = false;
+    public float detectionDistance = 1.5f;    
     public float bulletsPerSecond = 8;
     public float schlassPerSecond = 1;
+    public float killDistance = 0.2f;
     public Projectile projectile;
-    public TextMesh textMesh;
     GameManager gameManager;
     GameObject player;
     Vector2 direction;

@@ -5,4 +5,37 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isPlayerDead = false;
+    public GameObject healthHUD;
+    public GameObject endHUD;
+    bool isGameOver;
+
+    void Start()
+    {
+        isGameOver = false;
+    }
+
+    void Update()
+    {
+        if (isGameOver == false)
+        {
+            if (isPlayerDead == true)
+            {
+                isGameOver = true;
+                displayEndHUD();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Application.LoadLevel(Application.loadedLevelName);
+            }
+        }
+    }
+
+    void displayEndHUD()
+    {
+        healthHUD.SetActive(false);
+        endHUD.SetActive(true);
+    }
 }

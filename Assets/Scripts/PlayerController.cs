@@ -8,15 +8,15 @@ public enum Orientation { IdleLeft, IdleRight, IdleUp, IdleDown, MoveLeft, MoveR
 public class PlayerController : MonoBehaviour
 {
     public float playerSpeed = 0.8f;
-    public float bulletsPerSecond = 8;
-    public Projectile projectile;
-    public Orientation orientation = Orientation.IdleDown;
     public int health = 5;
+    public float bulletsPerSecond = 8;
+    public Orientation orientation = Orientation.IdleDown;
+    public Projectile projectile;
+    float timeSinceLastShot = 0f;
     Animator animator;
     Vector2 oldDirection;
     Vector2 newDirection;
     bool fire;
-    float timeSinceLastShot = 0f;
 
     // Use this for initialization
     void Start()
@@ -220,7 +220,7 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(int damageDone)
     {
-        health = health - damageDone;
+        health -= damageDone;
         if (health <= 0)
         {
             health = 0;
