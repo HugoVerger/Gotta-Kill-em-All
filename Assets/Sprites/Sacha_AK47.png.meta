@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 9ca01f159e47f784caf9d7f6ad3fa006
-timeCreated: 1485944206
+guid: c3abe6d19da8d304383049115eb97f15
+timeCreated: 1485943724
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sacha_0
-    21300002: Sacha_1
-    21300004: Sacha_2
-    21300006: Sacha_3
-    21300008: Sacha_4
-    21300010: Sacha_5
-    21300012: Sacha_6
-    21300014: Sacha_7
-    21300016: Sacha_8
-    21300018: Sacha_9
+    21300000: Sacha_AK47_0
+    21300002: Sacha_AK47_1
+    21300004: Sacha_AK47_2
+    21300006: Sacha_AK47_3
+    21300008: Sacha_AK47_4
+    21300010: Sacha_AK47_5
+    21300012: Sacha_AK47_6
+    21300014: Sacha_AK47_7
+    21300016: Sacha_AK47_8
+    21300018: Sacha_AK47_9
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -80,64 +80,90 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sacha_0
+      name: Sacha_AK47_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 22
-        width: 13
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Sacha_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 23
+        x: 9
+        y: 21
         width: 14
-        height: 15
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Sacha_2
+      name: Sacha_AK47_1
       rect:
         serializedVersion: 2
-        x: 44
+        x: 38
+        y: 21
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sacha_AK47_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 21
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sacha_AK47_3
+      rect:
+        serializedVersion: 2
+        x: 98
         y: 24
         width: 14
-        height: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Sacha_3
+      name: Sacha_AK47_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 24
-        width: 13
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Sacha_4
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 23
+        x: 128
+        y: 25
         width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sacha_AK47_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 25
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sacha_AK47_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 20
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,12 +171,25 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Sacha_5
+      name: Sacha_AK47_7
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 13
+        x: 30
+        y: 4
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sacha_AK47_8
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 20
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,52 +197,13 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Sacha_6
+      name: Sacha_AK47_9
       rect:
         serializedVersion: 2
-        x: 24
-        y: 0
-        width: 14
+        x: 97
+        y: 4
+        width: 20
         height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Sacha_7
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Sacha_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 13
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Sacha_9
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 0
-        width: 14
-        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
