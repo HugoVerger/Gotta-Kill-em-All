@@ -39,11 +39,13 @@ public class CustomTeleporter : MonoBehaviour
 	//simple enable/disable function in case you want the teleport not working at some point
 	//without disabling the entire script, so receiving objects still works
 	public bool teleportPadOn = true;
+    Animator animator;
 
 	void Start ()
 	{
 		//Set the countdown ready to the time you chose
 		curTeleportTime = teleportTime;
+        animator = GetComponent<Animator>();
 	}
 
 
@@ -194,14 +196,16 @@ public class CustomTeleporter : MonoBehaviour
 				subject = trig.transform;
 				//and check inside, ready for teleport
 				inside = true;
-				//if its a button teleport, the pad should be set to be ready to teleport again
-				//so the player/object doesn't have to leave the pad, and re enter again, we do that here
+                //if its a button teleport, the pad should be set to be ready to teleport again
+                //so the player/object doesn't have to leave the pad, and re enter again, we do that here
+                
 				if(buttonTeleport)
 				{
 					arrived = false;
 				}
 			}
-		}
+            animator.Play("Fondu");
+        }
 		else
 		{
 			//set the subject to be the entered object
