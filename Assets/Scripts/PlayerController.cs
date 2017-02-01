@@ -198,22 +198,26 @@ public class PlayerController : MonoBehaviour
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
+			temp.transform.Translate (new Vector3 (-0.025f, 0.148f, 0));
             temp.direction = new Vector2(0, 1);
         }
         else if (orientation == Orientation.MoveRight || orientation == Orientation.IdleRight)
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
+			temp.transform.Translate(new Vector3(-0.025f,-0.148f,0));
             temp.direction = new Vector2(0, -1);
         }
         else if (orientation == Orientation.MoveUp || orientation == Orientation.IdleUp)
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+			temp.transform.Translate(new Vector3(-0.025f,0.148f,0));
             temp.direction = new Vector2(0, 1);
         }
         else if (orientation == Orientation.MoveDown || orientation == Orientation.IdleDown)
         {
             Projectile temp = Instantiate<Projectile>(projectile, transform.position, transform.rotation);
+			temp.transform.Translate(new Vector3(0.025f,-0.148f,0));
             temp.direction = new Vector2(0, -1);
         }
     }

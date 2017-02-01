@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: cc565ee996e80a74cbc1721511827d91
-timeCreated: 1485814242
+timeCreated: 1485947968
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PlayerShot: {fileID: 8300000, guid: 2cb615bc3023efa44977a5ab2e6518f4, type: 3}
+  - audio: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
