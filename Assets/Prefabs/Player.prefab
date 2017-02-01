@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 0.8
   health: 5
-  bulletsPerSecond: 8
+  bulletsPerSecond: 10
   projectile: {fileID: 114363943782376112, guid: dd32bd894ab12d44b8ee3e081387bddd,
     type: 2}
 --- !u!124 &124977160181153100

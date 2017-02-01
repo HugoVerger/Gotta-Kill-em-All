@@ -8,16 +8,17 @@ public class EnemyController : MonoBehaviour
     public int health = 3;
     public bool isRange = false;
     public float detectionDistance = 1.5f;
-    public float killDistance = 0.2f;
+    public float killDistance = 0.3f;
     public float bulletsPerSecond = 8;
     public float schlassPerSecond = 2;
     public Projectile projectile;
-    Orientation orientation = Orientation.IdleDown;
+    public Orientation orientation = Orientation.IdleDown;
+    public float strafeRange;
+    Vector2 originalPosition;
     GameManager gameManager;
     GameObject player;
     Vector2 direction;
     bool playerFound;
-    bool fire;
     bool inAttackRange;
     float timeSinceLastAttack = 0f;
 
@@ -28,8 +29,8 @@ public class EnemyController : MonoBehaviour
         player = GameObject.Find("Player");
         direction = new Vector2(0, 0);
         playerFound = false;
-        fire = false;
         inAttackRange = false;
+        originalPosition = new Vector2(transform.position.x, transform.position.y);
     }
 
     // Update is called once per frame
@@ -37,11 +38,10 @@ public class EnemyController : MonoBehaviour
     {
         if (gameManager.isPlayerDead == false)
         {
-            FindNextMove();
             HandleMoving();
             if (isRange)
             {
-                if (fire && timeSinceLastAttack > (1 / bulletsPerSecond))
+                if (timeSinceLastAttack > (1 / bulletsPerSecond))
                 {
                     timeSinceLastAttack = 0f;
                     Fire();
@@ -119,63 +119,92 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-        return Orientation.IdleDown;
+        return orientation;
     }
 
     void HandleMoving()
     {
-        Orientation nextMove = FindNextMove();
-        direction = new Vector2(0, 0);
-        if (nextMove == Orientation.MoveLeft)
+        if (isRange == false)
         {
-            direction.x--;
-        }
-        else if (nextMove == Orientation.MoveRight)
-        {
-            direction.x++;
-        }
-        else if (nextMove == Orientation.MoveUp)
-        {
-            direction.y++;
-        }
-        else if (nextMove == Orientation.MoveDown)
-        {
-            direction.y--;
-        }
-        if (direction.magnitude != 0)
-        {
-            orientation = nextMove;
+            Orientation nextMove = FindNextMove();
+            direction = new Vector2(0, 0);
+            if (nextMove == Orientation.MoveLeft)
+            {
+                direction.x--;
+            }
+            else if (nextMove == Orientation.MoveRight)
+            {
+                direction.x++;
+            }
+            else if (nextMove == Orientation.MoveUp)
+            {
+                direction.y++;
+            }
+            else if (nextMove == Orientation.MoveDown)
+            {
+                direction.y--;
+            }
+            if (direction.magnitude != 0)
+            {
+                orientation = nextMove;
+            }
+            else
+            {
+                if (orientation == Orientation.MoveLeft)
+                {
+                    orientation = Orientation.IdleLeft;
+                }
+                else if (orientation == Orientation.MoveRight)
+                {
+                    orientation = Orientation.IdleRight;
+                }
+                else if (orientation == Orientation.MoveUp)
+                {
+                    orientation = Orientation.IdleUp;
+                }
+                else if (orientation == Orientation.MoveDown)
+                {
+                    orientation = Orientation.IdleDown;
+                }
+            }
         }
         else
         {
-            if (orientation == Orientation.MoveLeft)
+            if (direction.x == 0 && direction.y == 0)
             {
-                orientation = Orientation.IdleLeft;
+                if (orientation == Orientation.MoveLeft || orientation == Orientation.MoveRight)
+                {
+                    direction = new Vector2(0, 1);
+                }
+                else if (orientation == Orientation.MoveUp || orientation == Orientation.MoveDown)
+                {
+                    direction = new Vector2(1, 0);
+                }
             }
-            else if (orientation == Orientation.MoveRight)
+            else if (orientation == Orientation.MoveLeft || orientation == Orientation.MoveRight)
             {
-                orientation = Orientation.IdleRight;
+                if (transform.position.y < originalPosition.y - strafeRange)
+                {
+                    direction = new Vector2(0, 1);
+                }
+                else if (transform.position.y > originalPosition.y + strafeRange)
+                {
+                    direction = new Vector2(0, -1);
+                }
             }
-            else if (orientation == Orientation.MoveUp)
+            else if (orientation == Orientation.MoveUp || orientation == Orientation.MoveDown)
             {
-                orientation = Orientation.IdleUp;
-            }
-            else if (orientation == Orientation.MoveDown)
-            {
-                orientation = Orientation.IdleDown;
+                if (transform.position.x < originalPosition.x - strafeRange)
+                {
+                    direction = new Vector2(1, 0);
+                }
+                else if (transform.position.x > originalPosition.x + strafeRange)
+                {
+                    direction = new Vector2(-1, 0);
+                }
             }
         }
         GetComponent<Rigidbody2D>().velocity = direction * enemySpeed;
-
-        /*if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        {
-            fire = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
-        {
-            fire = false;
-            timeSinceLastShot = 0f;
-        }*/
     }
 
     void Fire()
