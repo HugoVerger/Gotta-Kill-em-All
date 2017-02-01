@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: ee3398d3efd82ae46ae878630537bb16
-timeCreated: 1485776387
+timeCreated: 1485860060
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Game Boy GBC - Pokemon Red Blue - Route 02_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +35,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +59,30 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Red Blue - Route 02_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 28
+        width: 324
+        height: 1138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
