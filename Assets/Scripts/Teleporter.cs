@@ -19,6 +19,6 @@ public class Teleporter : MonoBehaviour
 
     void TeleportPlayer()
     {
-        GameObject.Find("Player").transform.position = destination.position;
+        GameObject.Find("Player").transform.position = new Vector3(destination.position.x, destination.position.y, GameObject.Find("Player").transform.position.z);
     }
 }

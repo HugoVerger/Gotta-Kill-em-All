@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChenTrigger : MonoBehaviour
 {
     public GameObject ak47Trigger;
+    public GameObject dialogueTriggerChen;
     GameObject chen;
     GameObject player;
     Image textBubble;
@@ -57,7 +58,7 @@ public class ChenTrigger : MonoBehaviour
             playerController.orientation = Orientation.MoveDown;
             player.transform.Find("Exclamation").gameObject.SetActive(true);
             textBubble.enabled = true;
-            textDialogue.text = "Hey toi restes ici mon poussin !";
+            textDialogue.text = "CHEN: Hey ! Attends ! Ne t'en vas pas !";
             Invoke("StartMovingChen", 2f);
         }
     }
@@ -77,7 +78,7 @@ public class ChenTrigger : MonoBehaviour
     {
         readyToMove = false;
         textBubble.enabled = true;
-        textDialogue.text = "Tu aimes les films de gladiateur ?";
+        textDialogue.text = "CHEN: C'est dangereux de partir seul, suis moi!";
         chenAnimator.Play("IdleUp");
         Invoke("StartMovingThemBoth", 2f);
     }
@@ -124,7 +125,7 @@ public class ChenTrigger : MonoBehaviour
     {
         sachaDirection = new Vector3(1, 0, 0);
         sachaAnimator.Play("MoveRight");
-        Invoke("MakeSachaEnter", 1.8f);
+        Invoke("MakeSachaEnter", 1.82f);
     }
 
     void MakeChenEnter()
@@ -150,5 +151,6 @@ public class ChenTrigger : MonoBehaviour
         playerController.orientation = Orientation.IdleUp;
         sachaAnimator.Play("IdleUp");
         ak47Trigger.SetActive(true);
+        dialogueTriggerChen.SetActive(true);
     }
 }
