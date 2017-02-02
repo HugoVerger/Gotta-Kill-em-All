@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float bulletsPerSecond = 10;
     public Projectile projectile;
     public bool isFrozen = false;
+    public bool canShoot = true;
     Animator animator;
     Vector2 oldDirection;
     Vector2 newDirection;
@@ -33,14 +34,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleInput();
-        if (fire && timeSinceLastShot > (1 / bulletsPerSecond))
+        if (canShoot)
         {
-            timeSinceLastShot = 0f;
-            Fire();
-        }
-        else
-        {
-            timeSinceLastShot += Time.deltaTime;
+            if (fire && timeSinceLastShot > (1 / bulletsPerSecond))
+            {
+                timeSinceLastShot = 0f;
+                Fire();
+            }
+            else
+            {
+                timeSinceLastShot += Time.deltaTime;
+            }
         }
     }
 
