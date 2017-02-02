@@ -38,25 +38,35 @@ public class EnemyRangedController : MonoBehaviour
     {
         if (gameManager.isPlayerDead == false)
         {
+            float distance = Vector3.Distance(transform.position, player.transform.position);
             if (playerFound == false)
             {
-                if (Vector3.Distance(transform.position, player.transform.position) < detectionDistance)
+                if (distance < detectionDistance)
                 {
                     playerFound = true;
                     HandleOrientation();
-                    transform.Find("Exclamation").gameObject.SetActive(true);
+                    if (transform.Find("Exclamation") != null)
+                        transform.Find("Exclamation").gameObject.SetActive(true);
                 }
             }
             else
             {
-                // Player was found !
-                HandleMoving();
-                if (timeSinceLastShot > (1 / bulletsPerSecond))
+                if (distance > detectionDistance)
                 {
-                    timeSinceLastShot = 0f;
-                    Fire();
+                    playerFound = false;
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 }
-                timeSinceLastShot += Time.deltaTime;
+                else
+                {
+                    // Player was found !
+                    HandleMoving();
+                    if (timeSinceLastShot > (1 / bulletsPerSecond))
+                    {
+                        timeSinceLastShot = 0f;
+                        Fire();
+                    }
+                    timeSinceLastShot += Time.deltaTime;
+                }
             }
         }
         else
@@ -158,10 +168,14 @@ public class EnemyRangedController : MonoBehaviour
 
     public void Damage(int damageDone)
     {
-        health -= damageDone;
-        if (health <= 0)
+        if (GetComponent<SpriteRenderer>().isVisible)
         {
-            DestroyObject(gameObject);
+            health -= damageDone;
+            if (health <= 0)
+            {
+                DestroyObject(gameObject);
+            }
+
         }
     }
 }

@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     public string text3 = "";
     public string text4 = "";
     public bool hasToPressEnter = false;
+    PlayerController player;
     Image textBubble;
     Text textDialogue;
     bool isPlayerInside;
@@ -18,6 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
         textBubble = GameObject.Find("TextBubble").GetComponent<Image>();
         textDialogue = GameObject.Find("TextDialogue").GetComponent<Text>();
         isPlayerInside = false;
@@ -34,12 +36,14 @@ public class DialogueTrigger : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.Return))
                     {
+                        player.isFrozen = true;
                         textBubble.enabled = true;
                         textDialogue.text = text1;
                     }
                 }
                 else
                 {
+                    player.isFrozen = true;
                     textBubble.enabled = true;
                     textDialogue.text = text1;
                 }
@@ -65,6 +69,7 @@ public class DialogueTrigger : MonoBehaviour
                     }
                     else
                     {
+                        player.isFrozen = false;
                         isPlayerInside = false;
                         textBubble.enabled = false;
                         textDialogue.text = "";
