@@ -7,7 +7,7 @@ public class OneWayObstacle : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
         {
             if (collision.gameObject.transform.position.y > transform.position.y)
             {
@@ -18,7 +18,7 @@ public class OneWayObstacle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
         {
             gameObject.GetComponent<Collider2D>().isTrigger = false;
         }
