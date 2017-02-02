@@ -266,7 +266,7 @@ Animator:
   m_GameObject: {fileID: 1922036702465166}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 567db0a7183f5a54a9c0d70067392611, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3039fd7429751be458fafe1ed51aa5d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -305,6 +305,7 @@ MonoBehaviour:
   projectile: {fileID: 114363943782376112, guid: dd32bd894ab12d44b8ee3e081387bddd,
     type: 2}
   isFrozen: 0
+  canShoot: 1
 --- !u!124 &124977160181153100
 Behaviour:
   m_ObjectHideFlags: 1
@@ -378,7 +379,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300008, guid: 9ca01f159e47f784caf9d7f6ad3fa006, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3abe6d19da8d304383049115eb97f15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -405,6 +406,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.885, y: -3.9}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.16, y: 0.16}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -13930,6 +13930,17 @@ Prefab:
       propertyPath: canShoot
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212577227471618700, guid: 44cb1fcfeecd43a4d9f8a1ca7854dc5c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 9ca01f159e47f784caf9d7f6ad3fa006,
+        type: 3}
+    - target: {fileID: 95886701416688686, guid: 44cb1fcfeecd43a4d9f8a1ca7854dc5c,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 567db0a7183f5a54a9c0d70067392611, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44cb1fcfeecd43a4d9f8a1ca7854dc5c, type: 2}
   m_IsPrefabParent: 0

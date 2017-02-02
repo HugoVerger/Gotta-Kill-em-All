@@ -255,4 +255,11 @@ public class PlayerController : MonoBehaviour
             test.UpdateHealthBar(health);
         }
     }
+
+    public void Heal()
+    {
+        health = 5;
+        HealthBar healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+        healthBar.UpdateHealthBar(health);
+    }
 }

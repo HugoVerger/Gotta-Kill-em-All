@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    public Sprite health5;
     public Sprite health4;
     public Sprite health3;
     public Sprite health2;
@@ -19,7 +20,11 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar(int currentHealth)
     {
-        if (currentHealth == 4)
+        if (currentHealth == 5)
+        {
+            image.sprite = health5;
+        }
+        else if (currentHealth == 4)
         {
             image.sprite = health4;
         }
