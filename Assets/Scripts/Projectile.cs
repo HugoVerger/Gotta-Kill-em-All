@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
     {
         if (other.tag != "Player")
         {
-            DestroyObject(gameObject);
             if (other.tag == "Enemy")
             {
                 if (other.gameObject.GetComponent<EnemyController>() != null)
@@ -28,6 +27,11 @@ public class Projectile : MonoBehaviour
                     other.gameObject.GetComponent<EnemyRangedController>().Damage(1);
                 }
             }
+            else if (other.tag == "Chen")
+            {
+                DestroyObject(other.gameObject);
+            }
+            DestroyObject(gameObject);
         }
     }
 }

@@ -9,7 +9,9 @@ public class DialogueTrigger : MonoBehaviour
     public string text2 = "";
     public string text3 = "";
     public string text4 = "";
+    public string text5 = "";
     public bool hasToPressEnter = false;
+    public bool shouldDestroyAfter = false;
     PlayerController player;
     Image textBubble;
     Text textDialogue;
@@ -67,6 +69,11 @@ public class DialogueTrigger : MonoBehaviour
                         currentText = 4;
                         textDialogue.text = text4;
                     }
+                    else if (currentText == 4 && text5 != "")
+                    {
+                        currentText = 5;
+                        textDialogue.text = text5;
+                    }
                     else
                     {
                         player.isFrozen = false;
@@ -74,7 +81,10 @@ public class DialogueTrigger : MonoBehaviour
                         textBubble.enabled = false;
                         textDialogue.text = "";
                         currentText = 1;
-
+                        if (shouldDestroyAfter)
+                        {
+                            DestroyObject(gameObject);
+                        }
                     }
                 }
             }
@@ -97,6 +107,10 @@ public class DialogueTrigger : MonoBehaviour
             textBubble.enabled = false;
             textDialogue.text = "";
             currentText = 1;
+            if (shouldDestroyAfter)
+            {
+                DestroyObject(gameObject);
+            }
         }
     }
 }

@@ -5263,6 +5263,10 @@ Prefab:
       propertyPath: ak47Trigger
       value: 
       objectReference: {fileID: 2078344329}
+    - target: {fileID: 1875457692273784, guid: ce4ca6a464dd6464d8692836a92e3867, type: 2}
+      propertyPath: m_TagString
+      value: Chen
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce4ca6a464dd6464d8692836a92e3867, type: 2}
   m_IsPrefabParent: 0
