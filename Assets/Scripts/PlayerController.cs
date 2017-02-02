@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Orientation orientation = Orientation.IdleDown;
     public float bulletsPerSecond = 10;
     public Projectile projectile;
+    public bool isFrozen = false;
     Animator animator;
     Vector2 oldDirection;
     Vector2 newDirection;
@@ -46,21 +47,24 @@ public class PlayerController : MonoBehaviour
     void HandleInput()
     {
         newDirection = new Vector2(0, 0);
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (isFrozen == false)
         {
-            newDirection.x--;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            newDirection.x++;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            newDirection.y++;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            newDirection.y--;
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                newDirection.x--;
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                newDirection.x++;
+            }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                newDirection.y++;
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                newDirection.y--;
+            }
         }
         if (newDirection.x != 0 && newDirection.y != 0)
         {
@@ -81,11 +85,18 @@ public class PlayerController : MonoBehaviour
 
         HandleOrientation();
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (isFrozen == false)
         {
-            fire = true;
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            {
+                fire = true;
+            }
+            if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+            {
+                fire = false;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        else
         {
             fire = false;
         }

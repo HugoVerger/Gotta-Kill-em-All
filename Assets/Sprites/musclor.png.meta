@@ -1,19 +1,23 @@
 fileFormatVersion: 2
-guid: 848814cef4444e14b8ec088f1aa1a0cb
-timeCreated: 1486043461
+guid: 137eaa732cc725246bf198b0468e3e7c
+timeCreated: 1486036212
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Pikachu_0
-    21300002: Pikachu_1
-    21300004: Pikachu_2
-    21300006: Pikachu_3
-    21300008: Pikachu_4
-    21300010: Pikachu_5
-    21300012: Pikachu_6
-    21300014: Pikachu_7
-    21300016: Pikachu_8
-    21300018: Pikachu_9
+    21300000: musclor_0
+    21300002: musclor_1
+    21300004: musclor_2
+    21300006: musclor_3
+    21300008: musclor_4
+    21300010: musclor_5
+    21300012: musclor_6
+    21300014: musclor_7
+    21300016: musclor_8
+    21300018: musclor_9
+    21300020: musclor_10
+    21300022: musclor_11
+    21300024: musclor_12
+    21300026: musclor_13
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -80,132 +84,184 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pikachu_0
+      name: musclor_0
       rect:
         serializedVersion: 2
         x: 0
         y: 25
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pikachu_1
+      name: musclor_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 30
         y: 25
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pikachu_2
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 25
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Pikachu_3
+      name: musclor_2
       rect:
         serializedVersion: 2
         x: 60
         y: 25
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pikachu_4
+      name: musclor_3
       rect:
         serializedVersion: 2
-        x: 80
+        x: 90
         y: 25
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pikachu_5
+      name: musclor_4
       rect:
         serializedVersion: 2
-        x: 100
+        x: 120
         y: 25
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pikachu_6
+      name: musclor_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 25
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: musclor_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 25
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: musclor_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 25
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: musclor_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pikachu_7
+      name: musclor_9
       rect:
         serializedVersion: 2
-        x: 20
+        x: 30
         y: 0
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pikachu_8
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Pikachu_9
+      name: musclor_10
       rect:
         serializedVersion: 2
         x: 60
         y: 0
-        width: 20
+        width: 30
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: musclor_11
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: musclor_12
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: musclor_13
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
