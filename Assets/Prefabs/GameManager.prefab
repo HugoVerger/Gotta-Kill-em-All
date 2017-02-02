@@ -52,5 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerDead: 0
-  healthHUD: {fileID: 0}
   endHUD: {fileID: 0}

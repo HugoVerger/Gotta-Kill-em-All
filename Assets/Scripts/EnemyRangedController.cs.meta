@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: db041b0287bf31b49b588a3ddf34149f
-timeCreated: 1485993001
+guid: 6a2736c8f7abf0c40875304ce0d1fe5f
+timeCreated: 1485992991
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - endHUD: {fileID: 1888228966220294, guid: 9d3f1c820a8fe05408ad51659be62fd6, type: 2}
+  - projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
