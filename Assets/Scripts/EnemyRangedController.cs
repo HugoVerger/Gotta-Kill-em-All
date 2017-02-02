@@ -38,6 +38,7 @@ public class EnemyRangedController : MonoBehaviour {
                 if (Vector3.Distance(transform.position, player.transform.position) < detectionDistance) {
                     playerFound = true;
                     HandleOrientation();
+                    transform.Find("Exclamation").gameObject.SetActive(true);
                 }
             } else {
                 // Player was found !
@@ -110,6 +111,7 @@ public class EnemyRangedController : MonoBehaviour {
             temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
             temp.direction = new Vector2(0, -1);
         }
+        GetComponent<AudioSource>().Play();
     }
 
     public void Damage(int damageDone) {

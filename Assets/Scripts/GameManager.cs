@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public bool isPlayerDead = false;
-    public GameObject healthHUD;
     public GameObject endHUD;
     bool isGameOver;
 
@@ -26,7 +25,6 @@ public class GameManager : MonoBehaviour {
     }
 
     void displayEndHUD() {
-        healthHUD.SetActive(false);
         endHUD.SetActive(true);
     }
 }

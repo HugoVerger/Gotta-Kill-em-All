@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum Orientation { IdleLeft, IdleRight, IdleUp, IdleDown, MoveLeft, MoveRight, MoveUp, MoveDown, AttackLeft, AttackRight, AttackUp, AttackDown };
 
@@ -156,18 +155,21 @@ public class PlayerController : MonoBehaviour {
             temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
             temp.direction = new Vector2(0, -1);
         }
+        GetComponent<AudioSource>().Play();
     }
 
     public void Damage(int damageDone) {
         health -= damageDone;
         if (health <= 0) {
             health = 0;
-            GameObject.Find("HealthText").GetComponent<Text>().text = health + "";
+            HealthBar test = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+            test.UpdateHealthBar(health);
             GameObject.Find("GameManager").GetComponent<GameManager>().isPlayerDead = true;
             transform.DetachChildren();
             DestroyObject(gameObject);
         } else {
-            GameObject.Find("HealthText").GetComponent<Text>().text = health + "";
+            HealthBar test = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+            test.UpdateHealthBar(health);
         }
     }
 }

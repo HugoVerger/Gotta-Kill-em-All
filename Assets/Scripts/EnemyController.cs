@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour {
             if (playerFound == false) {
                 if (distance < detectionDistance) {
                     playerFound = true;
+                    transform.Find("Exclamation").gameObject.SetActive(true);
                 }
             } else {
                 // Player was found !
