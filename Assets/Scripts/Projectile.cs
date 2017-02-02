@@ -2,21 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour {
+public class Projectile : MonoBehaviour
+{
     public float projectileSpeed = 3;
     public Vector2 direction = new Vector2(0, 1);
 
-    void Update() {
+    void Update()
+    {
         transform.Translate(direction * projectileSpeed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag != "Player") {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag != "Player")
+        {
             DestroyObject(gameObject);
-            if (other.tag == "Enemy") {
-                if (other.gameObject.GetComponent<EnemyController>() != null) {
+            if (other.tag == "Enemy")
+            {
+                if (other.gameObject.GetComponent<EnemyController>() != null)
+                {
                     other.gameObject.GetComponent<EnemyController>().Damage(1);
-                } else {
+                }
+                else
+                {
                     other.gameObject.GetComponent<EnemyRangedController>().Damage(1);
                 }
             }

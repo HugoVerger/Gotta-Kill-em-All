@@ -2,29 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public bool isPlayerDead = false;
     public GameObject endHUD;
     bool isGameOver;
 
-    void Start() {
+    void Start()
+    {
         isGameOver = false;
+        if (endHUD == null)
+        {
+            endHUD = GameObject.Find("EndHud");
+        }
     }
 
-    void Update() {
-        if (isGameOver == false) {
-            if (isPlayerDead == true) {
+    void Update()
+    {
+        if (isGameOver == false)
+        {
+            if (isPlayerDead == true)
+            {
                 isGameOver = true;
                 displayEndHUD();
             }
-        } else {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 Application.LoadLevel(Application.loadedLevelName);
             }
         }
     }
 
-    void displayEndHUD() {
+    void displayEndHUD()
+    {
         endHUD.SetActive(true);
     }
 }
