@@ -123,7 +123,7 @@ public class EnemyRangedController : MonoBehaviour {
             temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
             temp.GetComponent<ProjectileEnemy>().direction = new Vector2(0, -1);
         }
-        audioSource.volume = 0.05f;
+        audioSource.volume = 0.2f;
         audioSource.clip = fireSound;
         audioSource.Play();
     }
@@ -133,7 +133,7 @@ public class EnemyRangedController : MonoBehaviour {
             health -= damageDone;
             if (health <= 0) {
                 gameManager.audioSource.clip = deathSound;
-                gameManager.audioSource.volume = 0.2f;
+                gameManager.audioSource.volume = 0.4f;
                 gameManager.audioSource.Play();
                 Instantiate<GameObject>(deathAnimation, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f), transform.rotation);
                 DestroyObject(gameObject);

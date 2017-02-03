@@ -137,7 +137,7 @@ public class EnemyController : MonoBehaviour {
             health -= damageDone;
             if (health <= 0) {
                 gameManager.audioSource.clip = deathSound;
-                gameManager.audioSource.volume = 0.25f;
+                gameManager.audioSource.volume = 0.4f;
                 gameManager.audioSource.Play();
                 Instantiate<GameObject>(deathAnimation, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f), transform.rotation);
                 DestroyObject(gameObject);

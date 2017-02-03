@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour {
             temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
             temp.direction = new Vector2(0, -1);
         }
-        GetComponent<AudioSource>().volume = 0.125f;
+        GetComponent<AudioSource>().volume = 0.1f;
         GetComponent<AudioSource>().clip = fireSound;
         GetComponent<AudioSource>().Play();
     }
