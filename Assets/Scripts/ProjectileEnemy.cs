@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileEnemy : MonoBehaviour {
     public float projectileSpeed = 3;
     public Vector2 direction = new Vector2(0, 1);
+    public bool isRocket = false;
 
     void Update() {
         transform.Translate(direction * projectileSpeed * Time.deltaTime);
@@ -12,9 +13,15 @@ public class ProjectileEnemy : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag != "Enemy") {
-            DestroyObject(gameObject);
             if (other.tag == "Player") {
-                other.gameObject.GetComponent<PlayerController>().Damage(1);
+                if (isRocket == false) {
+                    other.gameObject.GetComponent<PlayerController>().Damage(1);
+                } else {
+                    other.gameObject.GetComponent<PlayerController>().Damage(5);
+                }
+            }
+            if (isRocket == false) {
+                DestroyObject(gameObject);
             }
         }
     }

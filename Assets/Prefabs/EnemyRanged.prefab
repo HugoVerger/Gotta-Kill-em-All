@@ -237,7 +237,7 @@ MonoBehaviour:
   detectionDistance: 1.5
   bulletsPerSecond: 10
   strafeRange: 0.2
-  projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
+  projectileEnemy: {fileID: 1939186574657592, guid: 7d88d97c09ecc7a499a6d83e3260b262,
     type: 2}
   fireSound: {fileID: 8300000, guid: 55c2513f8713c7740b241f683cf795f5, type: 3}
   deathSound: {fileID: 8300000, guid: 9ee1db3b1b88a594a925a6e184e88103, type: 3}

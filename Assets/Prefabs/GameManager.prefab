@@ -133,6 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerDead: 0
-  endHUD: {fileID: 1888228966220294, guid: 9d3f1c820a8fe05408ad51659be62fd6, type: 2}
+  endHUD: {fileID: 0}
   endSound: {fileID: 8300000, guid: b7fd984ecaa300045a69ca7036f7725a, type: 3}
   audioSource: {fileID: 82637044152312476}

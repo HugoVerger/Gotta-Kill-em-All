@@ -4319,6 +4319,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1888228966220294, guid: 9d3f1c820a8fe05408ad51659be62fd6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d3f1c820a8fe05408ad51659be62fd6, type: 2}
   m_IsPrefabParent: 0
@@ -10276,7 +10280,7 @@ Prefab:
         type: 2}
       propertyPath: projectileEnemy
       value: 
-      objectReference: {fileID: 114451162000545340, guid: 44a138abfec8eba4fb14ac08c5eab556,
+      objectReference: {fileID: 1939186574657592, guid: 44a138abfec8eba4fb14ac08c5eab556,
         type: 2}
     - target: {fileID: 114491005249915194, guid: b6c6188793b45674bba42c9e00ef8377,
         type: 2}
@@ -14235,6 +14239,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1360185132 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1888228966220294, guid: 9d3f1c820a8fe05408ad51659be62fd6,
+    type: 2}
+  m_PrefabInternal: {fileID: 392911715}
 --- !u!1 &1367658007
 GameObject:
   m_ObjectHideFlags: 0
@@ -20114,6 +20123,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114132361646873932, guid: b223c2592bb30984c93349191831bc7e,
+        type: 2}
+      propertyPath: endHUD
+      value: 
+      objectReference: {fileID: 1360185132}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b223c2592bb30984c93349191831bc7e, type: 2}
   m_IsPrefabParent: 0

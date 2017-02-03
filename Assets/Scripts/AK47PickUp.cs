@@ -20,7 +20,7 @@ public class AK47PickUp : MonoBehaviour {
                 GameObject.Find("Player").GetComponent<Animator>().Play("IdleUp");
                 GameObject.Find("Player").GetComponent<PlayerController>().canShoot = true;
                 GameObject.Find("MusicPlayer").GetComponent<AudioSource>().clip = newMusic;
-                GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume = 0.15f;
+                GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume = 0.1f;
                 GameObject.Find("MusicPlayer").GetComponent<AudioSource>().Play();
                 DestroyObject(gameObject);
             }

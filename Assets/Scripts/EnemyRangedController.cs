@@ -9,7 +9,7 @@ public class EnemyRangedController : MonoBehaviour {
     public float detectionDistance = 1.5f;
     public float bulletsPerSecond = 10;
     public float strafeRange = 0.2f;
-    public ProjectileEnemy projectileEnemy;
+    public GameObject projectileEnemy;
     public AudioClip fireSound;
     public AudioClip deathSound;
     GameManager gameManager;
@@ -103,24 +103,24 @@ public class EnemyRangedController : MonoBehaviour {
 
     void Fire() {
         if (orientation == Orientation.MoveLeft || orientation == Orientation.IdleLeft) {
-            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
+            GameObject temp = Instantiate<GameObject>(projectileEnemy, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 270));
             temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
-            temp.direction = new Vector2(0, -1);
+            temp.GetComponent<ProjectileEnemy>().direction = new Vector2(0, -1);
         } else if (orientation == Orientation.MoveRight || orientation == Orientation.IdleRight) {
-            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
+            GameObject temp = Instantiate<GameObject>(projectileEnemy, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 90));
             temp.transform.Translate(new Vector3(-0.025f, -0.120f, 0));
-            temp.direction = new Vector2(0, -1);
+            temp.GetComponent<ProjectileEnemy>().direction = new Vector2(0, -1);
         } else if (orientation == Orientation.MoveUp || orientation == Orientation.IdleUp) {
-            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
+            GameObject temp = Instantiate<GameObject>(projectileEnemy, transform.position, transform.rotation);
             temp.transform.Rotate(new Vector3(0, 0, 180));
             temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
-            temp.direction = new Vector2(0, -1);
+            temp.GetComponent<ProjectileEnemy>().direction = new Vector2(0, -1);
         } else if (orientation == Orientation.MoveDown || orientation == Orientation.IdleDown) {
-            ProjectileEnemy temp = Instantiate<ProjectileEnemy>(projectileEnemy, transform.position, transform.rotation);
+            GameObject temp = Instantiate<GameObject>(projectileEnemy, transform.position, transform.rotation);
             temp.transform.Translate(new Vector3(0.025f, -0.120f, 0));
-            temp.direction = new Vector2(0, -1);
+            temp.GetComponent<ProjectileEnemy>().direction = new Vector2(0, -1);
         }
         audioSource.volume = 0.05f;
         audioSource.clip = fireSound;

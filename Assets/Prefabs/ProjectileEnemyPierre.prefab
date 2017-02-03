@@ -21,11 +21,10 @@ GameObject:
   - component: {fileID: 4430715012238418}
   - component: {fileID: 212810633249663504}
   - component: {fileID: 61054925009777992}
-  - component: {fileID: 50251598888313818}
   - component: {fileID: 114344466231212632}
-  - component: {fileID: 114451162000545340}
+  - component: {fileID: 114290436030990934}
   m_Layer: 0
-  m_Name: ProjectileEnemy 1
+  m_Name: ProjectileEnemyPierre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,26 +43,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50251598888313818
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1939186574657592}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &61054925009777992
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -78,6 +57,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.08}
+--- !u!114 &114290436030990934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939186574657592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4604c89d03a0414aba29c8adf958bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 1
+  direction: {x: 0, y: 1}
+  isRocket: 1
 --- !u!114 &114344466231212632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,19 +84,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TimeOut: 2
   m_DetachChildren: 0
---- !u!114 &114451162000545340
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1939186574657592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4604c89d03a0414aba29c8adf958bff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 1
-  direction: {x: 0, y: 1}
 --- !u!212 &212810633249663504
 SpriteRenderer:
   m_ObjectHideFlags: 1
