@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AK47PickUp : MonoBehaviour {
     public RuntimeAnimatorController newController;
+    public AudioClip newMusic;
     bool isPlayerInside;
 
     // Use this for initialization
@@ -18,6 +19,9 @@ public class AK47PickUp : MonoBehaviour {
                 GameObject.Find("Player").GetComponent<Animator>().runtimeAnimatorController = newController;
                 GameObject.Find("Player").GetComponent<Animator>().Play("IdleUp");
                 GameObject.Find("Player").GetComponent<PlayerController>().canShoot = true;
+                GameObject.Find("MusicPlayer").GetComponent<AudioSource>().clip = newMusic;
+                GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume = 0.15f;
+                GameObject.Find("MusicPlayer").GetComponent<AudioSource>().Play();
                 DestroyObject(gameObject);
             }
         }
