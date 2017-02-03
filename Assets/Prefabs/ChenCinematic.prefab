@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 61787472518780894}
   m_Layer: 0
   m_Name: Chen
-  m_TagString: Enemy
+  m_TagString: Chen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ak47Trigger: {fileID: 0}
+  dialogueTriggerChen: {fileID: 0}
 --- !u!212 &212153861723781814
 SpriteRenderer:
   m_ObjectHideFlags: 1
