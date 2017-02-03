@@ -2408,7 +2408,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1114457769740392, guid: 9d3f1c820a8fe05408ad51659be62fd6, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d3f1c820a8fe05408ad51659be62fd6, type: 2}
@@ -3001,7 +3001,7 @@ Prefab:
     - target: {fileID: 114472582071107152, guid: 19572faa87d9a9a41975c3df6a2b1674,
         type: 2}
       propertyPath: text1
-      value: "For\xEAt de Jade"
+      value: "For\xEAt de Jaja"
       objectReference: {fileID: 0}
     - target: {fileID: 61057218717157472, guid: 19572faa87d9a9a41975c3df6a2b1674,
         type: 2}
