@@ -68,7 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newController: {fileID: 9100000, guid: 3039fd7429751be458fafe1ed51aa5d6, type: 2}
-  newMusic: {fileID: 8300000, guid: 91e339a9011edc945be279d6285cc162, type: 3}
+  oldTP: {fileID: 0}
+  EndOfTutorialTP: {fileID: 0}
 --- !u!212 &212211798933713654
 SpriteRenderer:
   m_ObjectHideFlags: 1

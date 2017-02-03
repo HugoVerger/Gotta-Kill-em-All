@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/TutorialScene.unity
+  - enabled: 1
     path: Assets/_Scenes/BeforeForest.unity
   - enabled: 1
     path: Assets/_Scenes/ViridianForest.unity
