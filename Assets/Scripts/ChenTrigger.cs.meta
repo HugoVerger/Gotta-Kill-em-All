@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 67a590ad91d57c14d827674d765399a6
-timeCreated: 1486041864
+timeCreated: 1486113638
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ak47Trigger: {fileID: 1641343645370468, guid: 9aee21e303a3c174789630cfbc6e02a1,
+      type: 2}
+  - dialogueTriggerChen: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

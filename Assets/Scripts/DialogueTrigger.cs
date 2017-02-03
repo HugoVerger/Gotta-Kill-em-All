@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueTrigger : MonoBehaviour
-{
+public class DialogueTrigger : MonoBehaviour {
     public string text1 = "";
     public string text2 = "";
     public string text3 = "";
@@ -19,8 +18,7 @@ public class DialogueTrigger : MonoBehaviour
     int currentText;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         textBubble = GameObject.Find("TextBubble").GetComponent<Image>();
         textDialogue = GameObject.Find("TextDialogue").GetComponent<Text>();
@@ -28,61 +26,41 @@ public class DialogueTrigger : MonoBehaviour
         currentText = 1;
     }
 
-    void Update()
-    {
-        if (isPlayerInside)
-        {
-            if (textBubble.enabled == false)
-            {
-                if (hasToPressEnter)
-                {
-                    if (Input.GetKeyDown(KeyCode.Return))
-                    {
+    void Update() {
+        if (isPlayerInside) {
+            if (textBubble.enabled == false) {
+                if (hasToPressEnter) {
+                    if (Input.GetKeyDown(KeyCode.Return)) {
                         player.isFrozen = true;
                         textBubble.enabled = true;
                         textDialogue.text = text1;
                     }
-                }
-                else
-                {
+                } else {
                     player.isFrozen = true;
                     textBubble.enabled = true;
                     textDialogue.text = text1;
                 }
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.Return))
-                {
-                    if (currentText == 1 && text2 != "")
-                    {
+            } else {
+                if (Input.GetKeyDown(KeyCode.Return)) {
+                    if (currentText == 1 && text2 != "") {
                         currentText = 2;
                         textDialogue.text = text2;
-                    }
-                    else if (currentText == 2 && text3 != "")
-                    {
+                    } else if (currentText == 2 && text3 != "") {
                         currentText = 3;
                         textDialogue.text = text3;
-                    }
-                    else if (currentText == 3 && text4 != "")
-                    {
+                    } else if (currentText == 3 && text4 != "") {
                         currentText = 4;
                         textDialogue.text = text4;
-                    }
-                    else if (currentText == 4 && text5 != "")
-                    {
+                    } else if (currentText == 4 && text5 != "") {
                         currentText = 5;
                         textDialogue.text = text5;
-                    }
-                    else
-                    {
+                    } else {
                         player.isFrozen = false;
                         isPlayerInside = false;
                         textBubble.enabled = false;
                         textDialogue.text = "";
                         currentText = 1;
-                        if (shouldDestroyAfter)
-                        {
+                        if (shouldDestroyAfter) {
                             DestroyObject(gameObject);
                         }
                     }
@@ -91,24 +69,19 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Player") {
             isPlayerInside = true;
         }
     }
 
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
+    void OnTriggerExit2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Player") {
             isPlayerInside = false;
             textBubble.enabled = false;
             textDialogue.text = "";
             currentText = 1;
-            if (shouldDestroyAfter)
-            {
+            if (shouldDestroyAfter) {
                 DestroyObject(gameObject);
             }
         }

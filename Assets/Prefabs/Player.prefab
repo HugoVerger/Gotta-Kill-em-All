@@ -306,6 +306,9 @@ MonoBehaviour:
     type: 2}
   isFrozen: 0
   canShoot: 1
+  fireSound: {fileID: 8300000, guid: 2cb615bc3023efa44977a5ab2e6518f4, type: 3}
+  healSound: {fileID: 8300000, guid: cdf4b8b4454d5394287411c39ba4d115, type: 3}
+  hurtSound: {fileID: 8300000, guid: c62c7c9462974e14eb9e2983fee0f80a, type: 3}
 --- !u!124 &124977160181153100
 Behaviour:
   m_ObjectHideFlags: 1
