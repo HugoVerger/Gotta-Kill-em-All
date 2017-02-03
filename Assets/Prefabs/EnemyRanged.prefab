@@ -119,7 +119,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2cb615bc3023efa44977a5ab2e6518f4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 55c2513f8713c7740b241f683cf795f5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 0.5
@@ -239,6 +239,8 @@ MonoBehaviour:
   strafeRange: 0.2
   projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
     type: 2}
+  fireSound: {fileID: 8300000, guid: 55c2513f8713c7740b241f683cf795f5, type: 3}
+  deathSound: {fileID: 8300000, guid: 9ee1db3b1b88a594a925a6e184e88103, type: 3}
 --- !u!212 &212289855028625458
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
-{
+public class EnemyController : MonoBehaviour {
     public float enemySpeed = 0.6f;
     public int health = 5;
     public Orientation orientation = Orientation.IdleDown;
     public float detectionDistance = 1.5f;
     public float attackPerSecond = 2;
     public float killDistance = 0.2f;
+    public AudioClip attackSound;
+    public AudioClip deathSound;
     GameManager gameManager;
     GameObject player;
     Animator animator;
+    AudioSource audioSource;
     Vector2 direction;
     float distance;
     float timeSinceLastAttack;
@@ -20,13 +22,13 @@ public class EnemyController : MonoBehaviour
     bool inAttackRange;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
         animator.speed = 0.45f;
         animator.Play(orientation.ToString());
+        audioSource = GetComponent<AudioSource>();
         direction = new Vector2(0, 0);
         distance = Vector3.Distance(player.transform.position, transform.position);
         timeSinceLastAttack = 0f;
@@ -35,155 +37,107 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (gameManager.isPlayerDead == false)
-        {
+    void Update() {
+        if (gameManager.isPlayerDead == false) {
             distance = Vector3.Distance(transform.position, player.transform.position);
-            if (playerFound == false)
-            {
-                if (distance < detectionDistance)
-                {
+            if (playerFound == false) {
+                if (distance < detectionDistance) {
                     playerFound = true;
                     transform.Find("Exclamation").gameObject.SetActive(true);
                 }
-            }
-            else
-            {
+            } else {
                 // Player was found !
                 inAttackRange = (distance < killDistance);
                 orientation = FindOrientation();
                 HandleMoving();
                 animator.Play(orientation.ToString());
-                if (inAttackRange && timeSinceLastAttack > (1 / attackPerSecond))
-                {
+                if (inAttackRange && timeSinceLastAttack > (1 / attackPerSecond)) {
                     timeSinceLastAttack = 0f;
                     Attack();
                 }
                 timeSinceLastAttack += Time.deltaTime;
             }
-        }
-        else
-        {
+        } else {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
 
-    Orientation FindOrientation()
-    {
+    Orientation FindOrientation() {
         float distanceX = player.transform.position.x - transform.position.x;
         float distanceY = player.transform.position.y - transform.position.y;
-        if (inAttackRange == false)
-        {
-            if (Mathf.Abs(distanceX) < killDistance)
-            {
-                if (distanceY < 0)
-                {
+        if (inAttackRange == false) {
+            if (Mathf.Abs(distanceX) < killDistance) {
+                if (distanceY < 0) {
                     return Orientation.MoveDown;
-                }
-                else
-                {
+                } else {
                     return Orientation.MoveUp;
                 }
-            }
-            else if (Mathf.Abs(distanceY) < killDistance)
-            {
-                if (distanceX < 0)
-                {
+            } else if (Mathf.Abs(distanceY) < killDistance) {
+                if (distanceX < 0) {
                     return Orientation.MoveLeft;
-                }
-                else
-                {
+                } else {
                     return Orientation.MoveRight;
                 }
-            }
-            else
-            {
-                if (Mathf.Abs(distanceX) < Mathf.Abs(distanceY))
-                {
-                    if (distanceX < 0)
-                    {
+            } else {
+                if (Mathf.Abs(distanceX) < Mathf.Abs(distanceY)) {
+                    if (distanceX < 0) {
                         return Orientation.MoveLeft;
-                    }
-                    else
-                    {
+                    } else {
                         return Orientation.MoveRight;
                     }
-                }
-                else
-                {
-                    if (distanceY < 0)
-                    {
+                } else {
+                    if (distanceY < 0) {
                         return Orientation.MoveDown;
-                    }
-                    else
-                    {
+                    } else {
                         return Orientation.MoveUp;
                     }
                 }
             }
-        }
-        else
-        {
-            if (Mathf.Abs(distanceX) > Mathf.Abs(distanceY))
-            {
-                if (distanceX < 0)
-                {
+        } else {
+            if (Mathf.Abs(distanceX) > Mathf.Abs(distanceY)) {
+                if (distanceX < 0) {
                     return Orientation.AttackLeft;
-                }
-                else
-                {
+                } else {
                     return Orientation.AttackRight;
                 }
-            }
-            else
-            {
-                if (distanceY < 0)
-                {
+            } else {
+                if (distanceY < 0) {
                     return Orientation.AttackDown;
-                }
-                else
-                {
+                } else {
                     return Orientation.AttackUp;
                 }
             }
         }
     }
 
-    void HandleMoving()
-    {
+    void HandleMoving() {
         direction = new Vector2(0, 0);
-        if (orientation == Orientation.MoveLeft)
-        {
+        if (orientation == Orientation.MoveLeft) {
             direction.x--;
-        }
-        else if (orientation == Orientation.MoveRight)
-        {
+        } else if (orientation == Orientation.MoveRight) {
             direction.x++;
-        }
-        else if (orientation == Orientation.MoveUp)
-        {
+        } else if (orientation == Orientation.MoveUp) {
             direction.y++;
-        }
-        else if (orientation == Orientation.MoveDown)
-        {
+        } else if (orientation == Orientation.MoveDown) {
             direction.y--;
         }
         GetComponent<Rigidbody2D>().velocity = direction * enemySpeed;
     }
 
-    void Attack()
-    {
+    void Attack() {
         player.GetComponent<PlayerController>().Damage(1);
+        audioSource.clip = attackSound;
+        audioSource.volume = 0.4f;
+        audioSource.Play();
     }
 
-    public void Damage(int damageDone)
-    {
-        if (GetComponent<SpriteRenderer>().isVisible)
-        {
+    public void Damage(int damageDone) {
+        if (GetComponent<SpriteRenderer>().isVisible) {
             health -= damageDone;
-            if (health <= 0)
-            {
+            if (health <= 0) {
+                gameManager.audioSource.clip = deathSound;
+                gameManager.audioSource.volume = 0.25f;
+                gameManager.audioSource.Play();
                 DestroyObject(gameObject);
             }
         }

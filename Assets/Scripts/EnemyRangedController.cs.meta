@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: 6a2736c8f7abf0c40875304ce0d1fe5f
-timeCreated: 1485992991
+timeCreated: 1486114729
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - projectileEnemy: {fileID: 114451162000545340, guid: 7d88d97c09ecc7a499a6d83e3260b262,
       type: 2}
+  - fireSound: {fileID: 8300000, guid: 55c2513f8713c7740b241f683cf795f5, type: 3}
+  - hurtSound: {fileID: 8300000, guid: c62c7c9462974e14eb9e2983fee0f80a, type: 3}
+  - deathSound: {fileID: 8300000, guid: 9ee1db3b1b88a594a925a6e184e88103, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

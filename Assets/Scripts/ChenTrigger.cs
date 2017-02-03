@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChenTrigger : MonoBehaviour
-{
+public class ChenTrigger : MonoBehaviour {
     public GameObject ak47Trigger;
     public GameObject dialogueTriggerChen;
     GameObject chen;
@@ -19,8 +18,7 @@ public class ChenTrigger : MonoBehaviour
     bool readyToMove;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         chen = GameObject.Find("Chen");
         player = GameObject.Find("Player");
         textBubble = GameObject.Find("TextBubble").GetComponent<Image>();
@@ -35,22 +33,17 @@ public class ChenTrigger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (hasPlayerReached)
-        {
-            if (readyToMove)
-            {
+    void Update() {
+        if (hasPlayerReached) {
+            if (readyToMove) {
                 player.transform.Translate(0.35f * sachaDirection * Time.deltaTime);
                 chen.transform.Translate(0.35f * chenDirection * Time.deltaTime);
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player" && hasPlayerReached == false)
-        {
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Player" && hasPlayerReached == false) {
             hasPlayerReached = true;
             player.transform.position = new Vector3(-0.09f, -3.1f, 0);
             PlayerController playerController = player.GetComponent<PlayerController>();
@@ -63,8 +56,7 @@ public class ChenTrigger : MonoBehaviour
         }
     }
 
-    void StartMovingChen()
-    {
+    void StartMovingChen() {
         textBubble.enabled = false;
         textDialogue.text = "";
         readyToMove = true;
@@ -74,8 +66,7 @@ public class ChenTrigger : MonoBehaviour
         Invoke("StopChenBeforeSacha", 2.2f);
     }
 
-    void StopChenBeforeSacha()
-    {
+    void StopChenBeforeSacha() {
         readyToMove = false;
         textBubble.enabled = true;
         textDialogue.text = "CHEN: C'est dangereux de partir seul, suis moi!";
@@ -83,8 +74,7 @@ public class ChenTrigger : MonoBehaviour
         Invoke("StartMovingThemBoth", 2f);
     }
 
-    void StartMovingThemBoth()
-    {
+    void StartMovingThemBoth() {
         readyToMove = true;
         textBubble.enabled = false;
         textDialogue.text = "";
@@ -95,8 +85,7 @@ public class ChenTrigger : MonoBehaviour
         Invoke("MoveThemBothToTheLeft", 1.4f);
     }
 
-    void MoveThemBothToTheLeft()
-    {
+    void MoveThemBothToTheLeft() {
         chenDirection = new Vector3(-1, 0, 0);
         sachaDirection = new Vector3(-1, 0, 0);
         sachaAnimator.Play("MoveLeft");
@@ -104,8 +93,7 @@ public class ChenTrigger : MonoBehaviour
         Invoke("MoveThemBothDown", 0.9f);
     }
 
-    void MoveThemBothDown()
-    {
+    void MoveThemBothDown() {
         chenDirection = new Vector3(0, -1, 0);
         sachaDirection = new Vector3(0, -1, 0);
         sachaAnimator.Play("MoveDown");
@@ -114,36 +102,31 @@ public class ChenTrigger : MonoBehaviour
         Invoke("MoveSachaRight", 3.625f);
     }
 
-    void MoveChenRight()
-    {
+    void MoveChenRight() {
         chenDirection = new Vector3(1, 0, 0);
         chenAnimator.Play("MoveRight");
         Invoke("MakeChenEnter", 1.8f);
     }
 
-    void MoveSachaRight()
-    {
+    void MoveSachaRight() {
         sachaDirection = new Vector3(1, 0, 0);
         sachaAnimator.Play("MoveRight");
         Invoke("MakeSachaEnter", 1.82f);
     }
 
-    void MakeChenEnter()
-    {
+    void MakeChenEnter() {
         chenDirection = new Vector3(0, 1, 0);
         chenAnimator.Play("MoveUp");
         Invoke("TeleportChen", 0.2f);
     }
 
-    void TeleportChen()
-    {
+    void TeleportChen() {
         chenAnimator.Play("IdleDown");
         chen.transform.position = new Vector3(5, -14.05f, 0);
         chen.GetComponent<BoxCollider2D>().isTrigger = false;
     }
 
-    void MakeSachaEnter()
-    {
+    void MakeSachaEnter() {
         readyToMove = false;
         sachaDirection = new Vector3(0, 0, 0);
         PlayerController playerController = player.GetComponent<PlayerController>();
