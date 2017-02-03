@@ -241,6 +241,8 @@ MonoBehaviour:
     type: 2}
   fireSound: {fileID: 8300000, guid: 55c2513f8713c7740b241f683cf795f5, type: 3}
   deathSound: {fileID: 8300000, guid: 9ee1db3b1b88a594a925a6e184e88103, type: 3}
+  deathAnimation: {fileID: 1994292959733944, guid: b7819ee152ac2aa4ba877875a0f560b2,
+    type: 2}
 --- !u!212 &212289855028625458
 SpriteRenderer:
   m_ObjectHideFlags: 1

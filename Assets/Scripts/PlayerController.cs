@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     public AudioClip fireSound;
     public AudioClip healSound;
     public AudioClip hurtSound;
+    public GameObject deathAnimation;
     Animator animator;
     Vector2 oldDirection;
     Vector2 newDirection;
@@ -182,6 +183,7 @@ public class PlayerController : MonoBehaviour {
             health = 0;
             HealthBar healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
             healthBar.UpdateHealthBar(health);
+            Instantiate<GameObject>(deathAnimation, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f), transform.rotation);
             GameObject.Find("GameManager").GetComponent<GameManager>().isPlayerDead = true;
             transform.DetachChildren();
             DestroyObject(gameObject);

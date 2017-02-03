@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
     public float killDistance = 0.2f;
     public AudioClip attackSound;
     public AudioClip deathSound;
+    public GameObject deathAnimation;
     GameManager gameManager;
     GameObject player;
     Animator animator;
@@ -138,6 +139,7 @@ public class EnemyController : MonoBehaviour {
                 gameManager.audioSource.clip = deathSound;
                 gameManager.audioSource.volume = 0.25f;
                 gameManager.audioSource.Play();
+                Instantiate<GameObject>(deathAnimation, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f), transform.rotation);
                 DestroyObject(gameObject);
             }
         }

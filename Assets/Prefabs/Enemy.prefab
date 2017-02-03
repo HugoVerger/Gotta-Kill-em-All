@@ -226,6 +226,8 @@ MonoBehaviour:
   killDistance: 0.2
   attackSound: {fileID: 8300000, guid: 9693f8f78e9d6aa41a39de7862429183, type: 3}
   deathSound: {fileID: 8300000, guid: 9ee1db3b1b88a594a925a6e184e88103, type: 3}
+  deathAnimation: {fileID: 1994292959733944, guid: b7819ee152ac2aa4ba877875a0f560b2,
+    type: 2}
 --- !u!114 &114583286297135044
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ public class EnemyRangedController : MonoBehaviour {
     public GameObject projectileEnemy;
     public AudioClip fireSound;
     public AudioClip deathSound;
+    public GameObject deathAnimation;
     GameManager gameManager;
     GameObject player;
     Animator animator;
@@ -134,6 +135,7 @@ public class EnemyRangedController : MonoBehaviour {
                 gameManager.audioSource.clip = deathSound;
                 gameManager.audioSource.volume = 0.2f;
                 gameManager.audioSource.Play();
+                Instantiate<GameObject>(deathAnimation, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f), transform.rotation);
                 DestroyObject(gameObject);
             }
         }
